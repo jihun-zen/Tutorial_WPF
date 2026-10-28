@@ -1,0 +1,9 @@
+<Window x:Class="WpfTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF 텍스트 테스트" Height="360" Width="640"
+        MinHeight="300" MinWidth="420">
+    <Grid Margin="16">
+        <TextBlock Text="첫 번째 WPF 창입니다." />
+    </Grid>
+</Window>

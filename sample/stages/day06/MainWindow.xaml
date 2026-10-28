@@ -1,0 +1,43 @@
+<Window x:Class="WpfTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF 데이터 테스트" Height="480" Width="760"
+        MinHeight="380" MinWidth="500">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="테스트할 텍스트를 입력하세요." Margin="0,0,0,8" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="InputTextBox" Text="안녕하세요, WPF"
+                     VerticalContentAlignment="Center" Margin="0,0,8,0" />
+            <Button Grid.Column="1" Content="실행" Padding="16,6"
+                    Click="RunButton_Click" />
+        </Grid>
+
+        <TextBlock Grid.Row="2" Text="{Binding Result, Mode=OneWay}"
+                   Margin="0,12,0,8" TextWrapping="Wrap" />
+
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Posts, Mode=OneWay}"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="번호" Binding="{Binding Id}" Width="70" />
+                <DataGridTextColumn Header="제목" Binding="{Binding Title}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="4" x:Name="StatusTextBlock" Text="입력 후 실행 버튼을 누르세요."
+                   Margin="0,8,0,0" TextWrapping="Wrap" />
+    </Grid>
+</Window>
